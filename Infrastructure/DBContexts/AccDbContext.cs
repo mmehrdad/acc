@@ -1,11 +1,11 @@
-﻿using Core.Entities;
-using Infrastructure.Configurations;
-using Infrastructure.Helper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Data;
-using Infrastructure.Extensions;
-using Core.Entities.Interfaces;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Acc.Infrastructure.Helper;
+using Acc.Infrastructure.Configurations;
+using Acc.Core.Entities.Interfaces;
+using Core.Entities;
+using Acc.Infrastructure.Extensions;
 
 namespace Acc.Infrastructure.DBContexts
 {

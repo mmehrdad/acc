@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Configuration;
 using System.IO;
+using Microsoft.Extensions.Hosting;
 
 namespace Acc.Infrastructure.Helper
 {

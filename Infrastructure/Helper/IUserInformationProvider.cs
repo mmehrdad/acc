@@ -1,5 +1,5 @@
 ﻿
-using City.Amlak.Infrastructure.Utilities;
+using Acc.Infrastructure.Utilities;
 using Microsoft.AspNetCore.Http;
 
 namespace Acc.Infrastructure.Helper

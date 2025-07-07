@@ -8,5 +8,12 @@ namespace Core.Entities.Accounts
 {
     public class Account:BaseModel
     {
+        public string AccountNo { get; set; }
+        public Account Parent { get; set; }
+        public string ParentId { get; set; }
+        public int AccountType { get; set; }
+        public string AccountName { get; set; }
+        public string Description { get; set; }
+        public ICollection<Account> ChildAccounts { get; set; }
     }
 }

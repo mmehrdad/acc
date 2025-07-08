@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -53,13 +54,16 @@ namespace Core.Entities
         /// gets ro sets User that Modify this entity
         /// </summary>
 
-        public virtual Guid? ModifierId { get; set; }
+        public virtual string? ModifierId { get; set; }
+        public User Modifier { get; set; }
 
         /// <summary>
         /// gets ro sets User that Create this entity
         /// </summary>
 
-        public virtual Guid? CreatorId { get; set; }
+        public virtual string? CreatorId { get; set; }
+        public User Creator { get; set; }
+
         public bool? IsActive { get; set; }
 
     }

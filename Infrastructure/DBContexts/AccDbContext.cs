@@ -6,10 +6,12 @@ using Acc.Infrastructure.Configurations;
 using Acc.Core.Entities.Interfaces;
 using Core.Entities;
 using Acc.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Core.Entities.Identity;
 
 namespace Acc.Infrastructure.DBContexts
 {
-    public class AccDbContext : DbContext
+    public class AccDbContext :  IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         private readonly IUserInformationProvider userInformationProvider;
 

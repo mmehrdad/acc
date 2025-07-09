@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities
+namespace Acc.Core.Entities
 {
     public class BaseModel
     {

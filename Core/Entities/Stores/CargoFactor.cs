@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities.Stores
+namespace Acc.Core.Entities.Stores
 {
     public class CargoFactor:BaseModel
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities.Identity
+namespace Acc.Core.Entities.Identity
 {
     public class UserToken : IdentityUserToken<Guid>
     {

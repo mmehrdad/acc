@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities.Accounts
+namespace Acc.Core.Entities.Accounts
 {
     public class FinancialPeriod:BaseModel
     {

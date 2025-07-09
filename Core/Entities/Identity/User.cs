@@ -1,5 +1,5 @@
-﻿using Core.Entities.Accounts;
-using Core.Entities.Stores;
+﻿using Acc.Core.Entities.Accounts;
+using Acc.Core.Entities.Stores;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities.Identity
+namespace Acc.Core.Entities.Identity
 {
     public class User : IdentityUser<Guid>
     {

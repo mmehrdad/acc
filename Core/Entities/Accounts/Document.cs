@@ -14,6 +14,9 @@ namespace Acc.Core.Entities.Accounts
         public DocumentType DocumentType { get; set; }
         public DocumentStatus DocumentStatus { get; set; }
 
+        public Document Reference { get; set; }
+        public string ReferenceId { get; set; }
+
         public FinancialPeriod FinancialPeriod { get; set; }
         public string FinancialPeriodId { get; set; }
 
@@ -23,5 +26,6 @@ namespace Acc.Core.Entities.Accounts
         public string Description { get; set; }
 
         public virtual ICollection<DocumentDetail> DocumentDetails { get; set; }
+        public virtual ICollection<Document> References { get; set; }
     }
 }

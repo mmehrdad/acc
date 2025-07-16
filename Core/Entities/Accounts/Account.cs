@@ -1,5 +1,4 @@
-﻿using Core.Entities.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +16,6 @@ namespace Acc.Core.Entities.Accounts
         public string Description { get; set; }
 
         public ICollection<Account> ChildAccounts { get; set; }
+        public ICollection<DocumentDetail> DocumentDetails { get; set; }
     }
 }

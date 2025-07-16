@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Acc.Core.Entities.Accounts
+namespace Acc.Core.Entities.Persons
 {
-    public class CostCenter:BaseModel
+    public class Department:BaseModel
     {
         public string Name { get; set; }
-        public virtual ICollection<Document> Documents { get; set; }
-
     }
 }

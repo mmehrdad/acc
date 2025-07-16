@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\Accounts\" />
     <Folder Include="Configurations\Persons\" />
     <Folder Include="Configurations\Stores\" />
     <Folder Include="Repositories\" />

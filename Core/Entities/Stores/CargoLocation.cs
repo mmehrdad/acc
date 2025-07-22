@@ -13,5 +13,6 @@ namespace Acc.Core.Entities.Stores
         public string StoreId { get; set; }
         public string Name { get; set; }
         public LocationType LocationType { get; set; }
+        public virtual ICollection<CargoStore> CargoStores { get; set; }
     }
 }

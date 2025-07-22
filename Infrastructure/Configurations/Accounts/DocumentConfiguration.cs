@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Acc.Infrastructure.Configurations.Accounts
 {
-    internal class DocumentConfiguration : IEntityTypeConfiguration<Document>, IDbModelConfiguration
+    public class DocumentConfiguration : IEntityTypeConfiguration<Document>, IDbModelConfiguration
     {
         public void Configure(EntityTypeBuilder<Document> builder)
         {

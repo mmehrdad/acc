@@ -1,4 +1,4 @@
-﻿using Core.Entities.Persons;
+﻿using Acc.Core.Entities.Persons;
 using System;
 using System.Collections.Generic;
 using System.Linq;

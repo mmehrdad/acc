@@ -1,4 +1,4 @@
-﻿using Core.Entities.Identity;
+﻿using Acc.Core.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

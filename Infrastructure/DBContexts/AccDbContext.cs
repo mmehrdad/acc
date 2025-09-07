@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Acc.Infrastructure.Helper;
 using Acc.Infrastructure.Configurations;
 using Acc.Core.Entities.Interfaces;
-using Core.Entities;
 using Acc.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Core.Entities.Identity;
+using Acc.Core.Entities.Identity;
+using Acc.Core.Entities;
 
 namespace Acc.Infrastructure.DBContexts
 {

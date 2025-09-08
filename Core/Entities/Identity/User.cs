@@ -1,4 +1,5 @@
 ﻿using Acc.Core.Entities.Accounts;
+using Acc.Core.Entities.Persons;
 using Acc.Core.Entities.Stores;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Acc.Core.Entities.Identity
 {
-    public class User : IdentityUser<Guid>
+    public class User : IdentityUser<string>
     {
 
         public DateTime CreatedDate { get; set; }
@@ -53,6 +54,40 @@ namespace Acc.Core.Entities.Identity
 
         public virtual ICollection<Store> StoreCreators { get; set; }
         public virtual ICollection<Store> StoreModifiers { get; set; }
+
+        public virtual ICollection<CargoLocation> CargoLocationCreators { get; set; }
+        public virtual ICollection<CargoLocation> CargoLocationModifiers { get; set; }
+
+        public virtual ICollection<CargoRequest> CargoRequestCreators { get; set; }
+        public virtual ICollection<CargoRequest> CargoRequestModifiers { get; set; }
+        public virtual ICollection<CargoRequest> CargoRequestApprovers { get; set; }
+
+        public virtual ICollection<CargoRequestItem> CargoRequestItemCreators { get; set; }
+        public virtual ICollection<CargoRequestItem> CargoRequestItemModifiers { get; set; }
+
+        public virtual ICollection<Person> PersonCreators { get; set; }
+        public virtual ICollection<Person> PersonModifiers { get; set; }
+
+        public virtual ICollection<Department> DepartmentCreators { get; set; }
+        public virtual ICollection<Department> DepartmentModifiers { get; set; }
+
+        public virtual ICollection<Transaction> TransactionCreators { get; set; }
+        public virtual ICollection<Transaction> TransactionModifiers { get; set; }
+
+        public virtual ICollection<TransactionItem> TransactionItemCreators { get; set; }
+        public virtual ICollection<TransactionItem> TransactionItemModifiers { get; set; }
+
+        public virtual ICollection<RoleModule> RoleModuleCreators { get; set; }
+        public virtual ICollection<RoleModule> RoleModuleModifiers { get; set; }
+
+        public virtual ICollection<Module> ModuleCreators { get; set; }
+        public virtual ICollection<Module> ModuleModifiers { get; set; }
+
+        public virtual ICollection<RoleModulePermission> RoleModulePermissionCreators { get; set; }
+        public virtual ICollection<RoleModulePermission> RoleModulePermissionModifiers { get; set; }
+
+        public virtual ICollection<Permission> PermissionCreators { get; set; }
+        public virtual ICollection<Permission> PermissionModifiers { get; set; }
 
     }
 }

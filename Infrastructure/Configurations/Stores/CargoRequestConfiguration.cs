@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Acc.Infrastructure.Configurations.Stores
 {
-    public class CargoFactorConfiguration : IEntityTypeConfiguration<CargoFactor>, IDbModelConfiguration
+   public class CargoRequestConfiguration : IEntityTypeConfiguration<CargoRequest>, IDbModelConfiguration
     {
-        public void Configure(EntityTypeBuilder<CargoFactor> builder)
+        public void Configure(EntityTypeBuilder<CargoRequest> builder)
         {
 
 
             builder.HasOne(q => q.Creator)
-                .WithMany(q => q.CargoFactorCreators)
+                .WithMany(q => q.CargoRequestCreators)
                 .HasForeignKey(q => q.CreatorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -25,7 +25,7 @@ namespace Acc.Infrastructure.Configurations.Stores
                 .HasMaxLength(18);
 
             builder.HasOne(q => q.Modifier)
-                .WithMany(q => q.CargoFactorModifiers)
+                .WithMany(q => q.CargoRequestModifiers)
                 .HasForeignKey(q => q.ModifierId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -33,34 +33,42 @@ namespace Acc.Infrastructure.Configurations.Stores
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-
-
-
-            builder.HasOne(q => q.Cargo)
-                .WithMany(q => q.CargoFactors)
-                .HasForeignKey(q => q.CargoId)
+            builder.HasOne(q => q.Approver)
+                .WithMany(q => q.CargoRequestApprovers)
+                .HasForeignKey(q => q.ApproverId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(m => m.CargoId).ValueGeneratedNever()
+            builder.Property(m => m.ApproverId).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-            builder.HasOne(q => q.Factor)
-                .WithMany(q => q.CargoFactors)
-                .HasForeignKey(q => q.FactorId)
-                .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(m => m.FactorId).ValueGeneratedNever()
+
+
+            builder.HasOne(q => q.Requester)
+               .WithMany(q => q.CargoRequests)
+               .HasForeignKey(q => q.RequesterId)
+               .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.RequesterId).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-            
+
+            builder.HasOne(q => q.Department)
+              .WithMany(q => q.CargoRequests)
+              .HasForeignKey(q => q.RequesterId)
+              .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.RequesterId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
+
 
             builder.Property(m => m.Id).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
-
-            builder.ToTable("CargoFactors", "STR");
+            builder.ToTable("CargoRequests", "STR");
         }
     }
 }

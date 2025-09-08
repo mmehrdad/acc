@@ -1,21 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Acc.Core.Entities.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Acc.Core.Entities.Accounts;
 
-namespace Acc.Infrastructure.Configurations.Accounts
+namespace Acc.Infrastructure.Configurations.Identities
 {
-    public class AccountConfiguration : IEntityTypeConfiguration<Account>, IDbModelConfiguration
+    public class PermissionConfiguration : IEntityTypeConfiguration<Permission>, IDbModelConfiguration
     {
-        public void Configure(EntityTypeBuilder<Account> builder)
+        public void Configure(EntityTypeBuilder<Permission> builder)
         {
 
+
             builder.HasOne(q => q.Creator)
-                .WithMany(q => q.AccountCreators)
+                .WithMany(q => q.PermissionCreators)
                 .HasForeignKey(q => q.CreatorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -24,7 +25,7 @@ namespace Acc.Infrastructure.Configurations.Accounts
                 .HasMaxLength(18);
 
             builder.HasOne(q => q.Modifier)
-                .WithMany(q => q.AccountModifiers)
+                .WithMany(q => q.PermissionModifiers)
                 .HasForeignKey(q => q.ModifierId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -32,21 +33,14 @@ namespace Acc.Infrastructure.Configurations.Accounts
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
+            
 
 
-            builder.HasOne(q => q.Parent)
-                .WithMany(q => q.ChildAccounts)
-                .HasForeignKey(q => q.ParentId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            builder.Property(m => m.ParentId).ValueGeneratedNever()
-                .IsFixedLength(true).HasColumnType("char(18)")
-                .HasMaxLength(18);
 
             builder.Property(m => m.Id).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
-            builder.ToTable("Accounts", "ACC");
+            builder.ToTable("Permissions", "IDN");
         }
     }
 }

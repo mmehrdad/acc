@@ -8,8 +8,8 @@ namespace Acc.Core.Entities.Identity
 {
     public class RoleModule:BaseModel
     {
-        public Module Mudule { get; set; }
-        public string MaduleId { get; set; }
+        public Module Module { get; set; }
+        public string ModuleId { get; set; }
         public Role Role { get; set; }
         public string RoleId { get; set; }
         public virtual ICollection<RoleModulePermission> RoleModulePermissions { get; set; }

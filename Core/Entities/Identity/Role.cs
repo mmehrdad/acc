@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Acc.Core.Entities.Identity
 {
-    public class Role: IdentityRole<Guid>
+    public class Role: IdentityRole<string>
     {
         public string Name { get; set; }
         public ICollection<UserRole> Users { get; set; }
+        public virtual ICollection<RoleModule> RoleModules { get; set; }
     }
 }

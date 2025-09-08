@@ -1,4 +1,4 @@
-﻿using Acc.Core.Entities.Stores;
+﻿using Acc.Core.Entities.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Acc.Infrastructure.Configurations.Stores
+namespace Acc.Infrastructure.Configurations.Identities
 {
-    public class CargoFactorConfiguration : IEntityTypeConfiguration<CargoFactor>, IDbModelConfiguration
+   public class RoleModulePermissionConfiguration : IEntityTypeConfiguration<RoleModulePermission>, IDbModelConfiguration
     {
-        public void Configure(EntityTypeBuilder<CargoFactor> builder)
+        public void Configure(EntityTypeBuilder<RoleModulePermission> builder)
         {
 
 
             builder.HasOne(q => q.Creator)
-                .WithMany(q => q.CargoFactorCreators)
+                .WithMany(q => q.RoleModulePermissionCreators)
                 .HasForeignKey(q => q.CreatorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -25,7 +25,7 @@ namespace Acc.Infrastructure.Configurations.Stores
                 .HasMaxLength(18);
 
             builder.HasOne(q => q.Modifier)
-                .WithMany(q => q.CargoFactorModifiers)
+                .WithMany(q => q.RoleModulePermissionModifiers)
                 .HasForeignKey(q => q.ModifierId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -33,34 +33,30 @@ namespace Acc.Infrastructure.Configurations.Stores
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-
-
-
-            builder.HasOne(q => q.Cargo)
-                .WithMany(q => q.CargoFactors)
-                .HasForeignKey(q => q.CargoId)
+            builder.HasOne(q => q.RoleModule)
+                .WithMany(q => q.RoleModulePermissions)
+                .HasForeignKey(q => q.RoleModuleId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(m => m.CargoId).ValueGeneratedNever()
+            builder.Property(m => m.RoleModuleId).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-            builder.HasOne(q => q.Factor)
-                .WithMany(q => q.CargoFactors)
-                .HasForeignKey(q => q.FactorId)
+            builder.HasOne(q => q.Permission)
+                .WithMany(q => q.RoleModulePermissions)
+                .HasForeignKey(q => q.PermissionId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(m => m.FactorId).ValueGeneratedNever()
+            builder.Property(m => m.PermissionId).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-            
+
 
             builder.Property(m => m.Id).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
-
-            builder.ToTable("CargoFactors", "STR");
+            builder.ToTable("RoleModulePermissions", "IDN");
         }
     }
 }

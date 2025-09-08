@@ -9,6 +9,6 @@ namespace Acc.Core.Entities.Identity
     public class Permission:BaseModel
     {
         public string Name { get; set; }
-        public virtual ICollection<RoleModulePermission> RoleMadulePermissions { get; set; }
+        public virtual ICollection<RoleModulePermission> RoleModulePermissions { get; set; }
     }
 }

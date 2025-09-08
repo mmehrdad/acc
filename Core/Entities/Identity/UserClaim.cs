@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Acc.Core.Entities.Identity
 {
-    public class UserClaim : IdentityUserClaim<Guid>
+    public class UserClaim : IdentityUserClaim<string>
     {
     }
 }

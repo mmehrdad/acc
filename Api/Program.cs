@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Acc.Infrastructure.DBContexts;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
+using Acc.Infrastructure.Helper;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -50,7 +51,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-
+string conn = AppConfig.GetConnectionString("WebRazorDatabase");
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

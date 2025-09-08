@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Acc.Core.Entities.Accounts;
+using Acc.Core.Entities.Stores;
 
-namespace Acc.Infrastructure.Configurations.Accounts
+namespace Acc.Infrastructure.Configurations.TransactionItems
 {
-    public class AccountConfiguration : IEntityTypeConfiguration<Account>, IDbModelConfiguration
+    public class TransactionItemConfiguration : IEntityTypeConfiguration<TransactionItem>, IDbModelConfiguration
     {
-        public void Configure(EntityTypeBuilder<Account> builder)
+        public void Configure(EntityTypeBuilder<TransactionItem> builder)
         {
 
             builder.HasOne(q => q.Creator)
-                .WithMany(q => q.AccountCreators)
+                .WithMany(q => q.TransactionItemCreators)
                 .HasForeignKey(q => q.CreatorId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -24,7 +24,7 @@ namespace Acc.Infrastructure.Configurations.Accounts
                 .HasMaxLength(18);
 
             builder.HasOne(q => q.Modifier)
-                .WithMany(q => q.AccountModifiers)
+                .WithMany(q => q.TransactionItemModifiers)
                 .HasForeignKey(q => q.ModifierId)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -32,21 +32,20 @@ namespace Acc.Infrastructure.Configurations.Accounts
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
 
-
-
-            builder.HasOne(q => q.Parent)
-                .WithMany(q => q.ChildAccounts)
-                .HasForeignKey(q => q.ParentId)
+            builder.HasOne(q => q.Transaction)
+                .WithMany(q => q.TransactionItems)
+                .HasForeignKey(q => q.TransactionId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(m => m.ParentId).ValueGeneratedNever()
+            builder.Property(m => m.TransactionId).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
+
 
             builder.Property(m => m.Id).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);
-            builder.ToTable("Accounts", "ACC");
+            builder.ToTable("TransactionItems", "STR");
         }
     }
 }

@@ -13,7 +13,24 @@ namespace Acc.Infrastructure.Configurations.Accounts
     {
         public void Configure(EntityTypeBuilder<CostCenter> builder)
         {
-            
+
+            builder.HasOne(q => q.Creator)
+                .WithMany(q => q.CostCenterCreators)
+                .HasForeignKey(q => q.CreatorId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.CreatorId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
+
+            builder.HasOne(q => q.Modifier)
+                .WithMany(q => q.CostCenterModifiers)
+                .HasForeignKey(q => q.ModifierId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.ModifierId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
 
             builder.Property(m => m.Id).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")

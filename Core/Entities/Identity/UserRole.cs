@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Acc.Core.Entities.Identity
 {
-    public class UserRole : IdentityUserRole<Guid>
+    public class UserRole : IdentityUserRole<string>
     {
 
         public User User { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Acc.Core.Entities.Identity
 {
-    public class RoleClaim : IdentityRoleClaim<Guid>
+    public class RoleClaim : IdentityRoleClaim<string>
     {
     }
 }

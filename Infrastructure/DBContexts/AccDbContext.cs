@@ -11,7 +11,7 @@ using Acc.Core.Entities;
 
 namespace Acc.Infrastructure.DBContexts
 {
-    public class AccDbContext :  IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+    public class AccDbContext :  IdentityDbContext<User, Role, string, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         private readonly IUserInformationProvider userInformationProvider;
 

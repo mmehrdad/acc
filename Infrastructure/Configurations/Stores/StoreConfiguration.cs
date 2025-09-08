@@ -14,6 +14,26 @@ namespace Acc.Infrastructure.Configurations.Stores
     {
         public void Configure(EntityTypeBuilder<Store> builder)
         {
+
+            builder.HasOne(q => q.Creator)
+                .WithMany(q => q.StoreCreators)
+                .HasForeignKey(q => q.CreatorId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.CreatorId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
+
+            builder.HasOne(q => q.Modifier)
+                .WithMany(q => q.StoreModifiers)
+                .HasForeignKey(q => q.ModifierId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.ModifierId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
+
+
             builder.Property(m => m.Id).ValueGeneratedNever()
                 .IsFixedLength(true).HasColumnType("char(18)")
                 .HasMaxLength(18);

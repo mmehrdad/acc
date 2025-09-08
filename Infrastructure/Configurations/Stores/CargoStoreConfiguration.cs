@@ -13,6 +13,27 @@ namespace Acc.Infrastructure.Configurations.Stores
     {
         public void Configure(EntityTypeBuilder<CargoStore> builder)
         {
+
+
+            builder.HasOne(q => q.Creator)
+                .WithMany(q => q.CargoStoreCreators)
+                .HasForeignKey(q => q.CreatorId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.CreatorId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
+
+            builder.HasOne(q => q.Modifier)
+                .WithMany(q => q.CargoStoreModifiers)
+                .HasForeignKey(q => q.ModifierId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(m => m.ModifierId).ValueGeneratedNever()
+                .IsFixedLength(true).HasColumnType("char(18)")
+                .HasMaxLength(18);
+
+
             builder.HasOne(q => q.Store)
                 .WithMany(q => q.CargoStores)
                 .HasForeignKey(q => q.StoreId)

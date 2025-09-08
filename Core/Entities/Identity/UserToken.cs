@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Acc.Core.Entities.Identity
 {
-    public class UserToken : IdentityUserToken<Guid>
+    public class UserToken : IdentityUserToken<string>
     {
     }
 }

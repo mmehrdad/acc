@@ -20,6 +20,7 @@ namespace Acc.Core.Entities.Stores
 
         public User Approver { get; set; }
         public string? ApproverId { get; set; }
+
         public DateTime ApprovalDate { get; set; }
 
         public virtual ICollection<CargoRequestItem> CargoRequestItems { get; set; }

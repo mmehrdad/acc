@@ -12,5 +12,6 @@ namespace Acc.Core.Entities.Stores
         public virtual ICollection<CargoSpecific> CargoSpecifics { get; set; }
         public virtual ICollection<CargoStore> CargoStores { get; set; }
         public virtual ICollection<CargoFactor> CargoFactors { get; set; }
+        public virtual ICollection<CargoRequestItem> CargoRequestItems { get; set; }
     }
 }
